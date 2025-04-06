@@ -1,0 +1,62 @@
+.v-recipes-card {
+  position: relative;
+  border: 4px double $main-clr;
+  padding: 5px;
+  cursor: pointer;
+  background-color: $card-bg;
+  border-radius: $border-radius * 0.5;
+  transition: all 0.2s ease-in-out;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: $main-bg;
+  }
+
+  &__title {
+    font-family: $font-subtitle;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.2;
+    margin-top: 25px;
+  }
+
+  &__time {
+    margin-top: 20px;
+    background-color: $action-clr;
+    font-family: $font-subtitle;
+    padding: 4px;
+    font-size: 14px;
+    border-radius: $border-radius;
+  }
+
+  &__tag {
+    margin-top: 25px;
+  }
+
+  &__button {
+    margin-top: auto;
+    align-self: flex-start;
+  }
+
+  &__icon {
+    margin-top: 15px;
+    width: 110px;
+    height: 110px;
+  }
+}
+
+.v-recipes-card-tag {
+  display: flex;
+
+  &__item {
+    border-radius: $border-radius * 0.5;
+    padding: 4px;
+    & + & {
+      margin-left: 10px;
+    }
+  }
+}

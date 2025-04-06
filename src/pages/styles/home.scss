@@ -1,0 +1,44 @@
+.home {
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  &__title {
+    text-align: center;
+    color: $accent-clr;
+    font-size: 72px;
+    line-height: 1.2;
+    text-shadow: 3px 3px 5px $main-clr;
+
+    @media (max-width: 550px) {
+      font-size: 48px;
+    }
+  }
+
+  &__wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1680px;
+  }
+
+  &__search {
+    margin-top: 50px;
+  }
+
+  &__cards {
+    padding: 20px;
+    border: 8px double $border-clr;
+    border-radius: $border-radius;
+  }
+
+  &__filters,
+  &__cards,
+  &__pagination {
+    margin-top: 40px;
+
+    @media (max-width: 550px) {
+      margin-top: 20px;
+    }
+  }
+}

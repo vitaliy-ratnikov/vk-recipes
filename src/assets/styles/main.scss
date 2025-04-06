@@ -1,0 +1,48 @@
+@import "./_fonts.scss";
+@import "./_reset.scss";
+@import "./_variables.scss";
+
+html {
+  font-size: 16px;
+
+  &::-webkit-scrollbar {
+    width: 6px; // Увеличим чтобы увидеть эффект
+  }
+}
+body {
+  font-family: $font-base;
+  color: $main-clr;
+  background-color: $main-bg;
+
+  scrollbar-color: $accent-bg $main-bg;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $main-clr;
+    border-radius: 1px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $accent-bg;
+    border-radius: 1px;
+  }
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: $accent-bg $main-clr;
+  }
+}
+
+h1,
+h2 {
+  font-family: $font-title;
+  font-weight: 400;
+  font-style: normal;
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}

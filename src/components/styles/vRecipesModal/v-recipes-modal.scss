@@ -1,0 +1,37 @@
+.v-recipes-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 10px;
+
+  &__content {
+    background-color: $card-bg;
+    border-radius: $border-radius;
+    padding: 30px;
+    max-width: 850px;
+    position: relative;
+    border: 5px double $main-clr;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: -5px;
+    font-family: $font-subtitle;
+    font-size: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      color: $accent-clr;
+    }
+  }
+}

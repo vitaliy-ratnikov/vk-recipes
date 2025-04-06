@@ -1,0 +1,57 @@
+.v-recipes-search {
+  display: flex;
+  justify-content: center;
+  &__wrapper {
+    position: relative;
+    max-width: 700px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  &__input {
+    padding: 20px 50px 20px 20px;
+    border-radius: 25px;
+    border: 2px dashed $main-clr;
+    background-color: $card-bg;
+    width: inherit;
+
+    text-align: center;
+    font-size: 28px;
+    line-height: 1.2;
+
+    @media (max-width: 475px) {
+      font-size: 20px;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    right: 50px;
+    top: 14px;
+    background-color: transparent;
+    border: none;
+    font-family: $font-subtitle;
+    font-size: 42px;
+    line-height: 1.2;
+
+    &:hover {
+      color: $accent-bg;
+    }
+  }
+
+  &__favorite-text {
+    position: absolute;
+    right: -15%;
+    font-family: $font-subtitle;
+    top: 0;
+    font-size: 13px;
+    line-height: 1.2;
+    transform: rotate(20deg);
+
+    @media (max-width: 991px) {
+      right: 10px;
+      transform: rotate(5deg);
+      top: -25px;
+    }
+  }
+}

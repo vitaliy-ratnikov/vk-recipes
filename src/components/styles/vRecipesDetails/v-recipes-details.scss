@@ -1,0 +1,85 @@
+.v-recipes-details {
+  padding: 10px;
+  border-top: 4px dashed $border-clr;
+  border-bottom: 4px dashed $border-clr;
+
+  @media (max-width: 550px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 32px;
+    text-shadow: 2px 1px 2px $main-clr;
+    color: $accent-clr;
+  }
+
+  &__time {
+    margin-top: 15px;
+    font-size: 18px;
+    line-height: 1.3;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  &__description {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.2;
+    border-bottom: 5px double $border-clr;
+    padding-bottom: 20px;
+  }
+  &__kbju {
+    margin-top: 25px;
+  }
+
+  &__ingredients,
+  &__slider {
+    margin-top: 20px;
+  }
+  &__subtitle {
+    margin-top: 15px;
+    font-family: $font-subtitle;
+  }
+}
+
+.v-recipe-details-kbju {
+  display: flex;
+  justify-content: flex-end;
+
+  &__item {
+    padding-top: 10px;
+    font-weight: 600;
+    & + & {
+      margin-left: 10px;
+    }
+  }
+
+  &__highlight {
+    border-bottom: 5px double $main-clr;
+    margin-bottom: 10px;
+    display: block;
+    padding-bottom: 2px;
+    text-align: center;
+  }
+}
+
+.v-recipes-details-ingredients {
+  list-style: disc;
+  border-bottom: 5px double $border-clr;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  &__item {
+    font-size: 18px;
+    font-weight: 600;
+    & + & {
+      margin-top: 10px;
+    }
+  }
+}
