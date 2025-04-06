@@ -30,11 +30,11 @@
             "Малина – 70 г (когда не сезон,можно замороженную)"
         ],
         "slides": [
-            "public/slides/detox-menu/breakfast/b-1.jpg",
-            "public/slides/detox-menu/breakfast/b-2.jpg",
-            "public/slides/detox-menu/breakfast/b-4.jpg",
-            "public/slides/detox-menu/breakfast/b-3.jpg",
-            "public/slides/detox-menu/breakfast/b-5.jpg"
+            "/slides/detox-menu/breakfast/b-1.jpg",
+            "/slides/detox-menu/breakfast/b-2.jpg",
+            "/slides/detox-menu/breakfast/b-4.jpg",
+            "/slides/detox-menu/breakfast/b-3.jpg",
+            "/slides/detox-menu/breakfast/b-5.jpg"
         ]
     },
     {
@@ -71,7 +71,7 @@
             "Соль, специи – щепотки"
         ],
         "slides": [
-            "public/slides/detox-menu/breakfast/b-2.jpg"
+            "/slides/detox-menu/breakfast/b-2.jpg"
         ]
     },
     {

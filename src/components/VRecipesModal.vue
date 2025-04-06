@@ -17,18 +17,19 @@ const emit = defineEmits(['close'])
 const handleClose = () => emit('close')
 
 const onKeyDown = (e) => {
-    if (e.key === 'Escape') {
-        emit('close')
-    }
+    if (e.key === 'Escape') emit('close')
 }
 
 onMounted(() => {
+    document.body.classList.add('v-recipes-modal--is-open')
     window.addEventListener('keydown', onKeyDown)
 })
 
 onUnmounted(() => {
+    document.body.classList.remove('v-recipes-modal--is-open')
     window.removeEventListener('keydown', onKeyDown)
 })
+
 </script>
 
 <style lang="scss" scoped>

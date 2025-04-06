@@ -9,6 +9,10 @@ html {
     width: 6px; // Увеличим чтобы увидеть эффект
   }
 }
+
+body.v-recipes-modal--is-open {
+  overflow: hidden;
+}
 body {
   font-family: $font-base;
   color: $main-clr;
