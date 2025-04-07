@@ -8,11 +8,12 @@ export const useRecipesStore = defineStore("recipes", () => {
   const activeTag = ref(null);
   const currentPage = ref(1);
   const recipesPerPage = ref(12);
-  const favorites = ref(new Set());
+  const favorites = ref([]);
   const showOnlyFavorites = ref(false);
+
   const filteredRecipes = computed(() => {
     const base = showOnlyFavorites.value
-      ? recipes.value.filter((r) => favorites.value.has(r.id))
+      ? recipes.value.filter((r) => favorites.value.includes(r.id))
       : recipes.value;
 
     const query = searchQuery.value.toLowerCase();
@@ -50,6 +51,24 @@ export const useRecipesStore = defineStore("recipes", () => {
     return Array.from(set);
   });
 
+  const favoriteRecipes = computed(() => {
+    return recipes.value.filter((recipe) =>
+      favorites.value.includes(recipe.id)
+    );
+  });
+
+  const toggleFavorite = (recipeId) => {
+    if (favorites.value.includes(recipeId)) {
+      favorites.value = favorites.value.filter((id) => id !== recipeId);
+    } else {
+      favorites.value.push(recipeId);
+    }
+  };
+
+  const isFavorite = (recipeId) => {
+    return favorites.value.includes(recipeId);
+  };
+
   const resetSearch = () => {
     searchQuery.value = "";
   };
@@ -59,34 +78,23 @@ export const useRecipesStore = defineStore("recipes", () => {
     activeTag.value = null;
     showOnlyFavorites.value = false;
   };
-  const favoriteRecipes = computed(() => {
-    return recipes.value.filter((recipe) => favorites.value.has(recipe.id));
-  });
-
-  const toggleFavorite = (recipeId) => {
-    if (favorites.value.has(recipeId)) {
-      favorites.value.delete(recipeId);
-    } else {
-      favorites.value.add(recipeId);
-    }
-  };
-
-  const isFavorite = (recipeId) => {
-    return favorites.value.has(recipeId);
-  };
 
   try {
-    const storedFavorites = localStorage.getItem("vk-favorites");
-    if (storedFavorites) {
-      favorites.value = new Set(JSON.parse(storedFavorites));
+    const stored = localStorage.getItem("vk-favorites");
+    if (stored) {
+      favorites.value = JSON.parse(stored);
     }
   } catch (error) {
     console.error("Ошибка при чтении избранного из localStorage:", error);
   }
 
-  watch(favorites, (newSet) => {
-    localStorage.setItem("vk-favorites", JSON.stringify([...newSet]));
-  });
+  watch(
+    favorites,
+    (newArr) => {
+      localStorage.setItem("vk-favorites", JSON.stringify(newArr));
+    },
+    { deep: true }
+  );
 
   return {
     recipes,
@@ -98,12 +106,12 @@ export const useRecipesStore = defineStore("recipes", () => {
     paginatedRecipes,
     totalPages,
     allTags,
+    favoriteRecipes,
+    favorites,
+    showOnlyFavorites,
     resetSearch,
     resetFilters,
-    favorites,
     toggleFavorite,
     isFavorite,
-    favoriteRecipes,
-    showOnlyFavorites,
   };
 });

@@ -71,7 +71,11 @@ onMounted(() => {
 onUnmounted(() => {
     window.removeEventListener('resize', updatePerPage)
 })
+
 const isFavoriteView = computed(() => store.showOnlyFavorites)
+// const favoriteButtonText = computed(() =>
+//     store.showOnlyFavorites ? 'Показать все' : 'Только избранные'
+// )
 </script>
 
 <style lang="scss" scoped>
